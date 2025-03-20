@@ -25,6 +25,9 @@ const Navbar = () =>{
           <div className="header-option-text">Login</div>
         </div>
       </div>
+      <div className="profile-option-container" onClick={() =>{ navigate(`/Profile`); }}>
+          <div className="header-option-text">Profile</div>
+        </div>
     </div>
   );
 };

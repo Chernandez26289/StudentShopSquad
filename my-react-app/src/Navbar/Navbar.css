@@ -26,6 +26,13 @@
     align-items: center;
     transition: all 0.3s ease;
   }
+  .profile-option-container{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
   
   .header-option-text{
     font-size: 1rem;
@@ -36,6 +43,10 @@
     text-transform: capitalize;
   }
   .header-option-container:hover .header-option-text{
+    color: #9b4d96;
+    transform: scale(1.05);
+  }
+  .profile-option-container:hover .header-option-text{
     color: #9b4d96;
     transform: scale(1.05);
   }
