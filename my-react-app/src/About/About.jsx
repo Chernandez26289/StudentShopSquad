@@ -1,7 +1,24 @@
 import "./About.css";
 import Navbar from "../Navbar/Navbar";
+import { useEffect } from 'react';
 
 function About(){
+    useEffect(() => {
+        console.log('About component loaded - Making API call...');
+        
+        fetch('http://localhost:5173/api/about')
+            .then(response => {
+                console.log('Received response:', response.status);
+                return response.json();
+            })
+            .then(data => {
+                console.log('Backend response data:', data);
+            })
+            .catch(error => {
+                console.error('Error making API call:', error);
+            });
+    }, []);
+
     return(
         <div className="about-page-container">
             <Navbar />
