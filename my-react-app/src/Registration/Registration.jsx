@@ -41,14 +41,14 @@ function Registration(){
             const errorData = await response.json();
             if (!response.ok) {
                 
-                throw new Error(errorData.message || 'Registration failed');
+                throw new Error(errorData.message || ' Registration failed');
             }
 
-            const data = await response.json();
-            console.log('Registration successful:', data);
+           
+            console.log('Registration successful:', errorData);
             navigate('/');
         } catch (err) {
-            setError(err.message || 'An unexpected error occurred');
+            setError(err.message ||' An unexpected error occurred');
         }
             
             
