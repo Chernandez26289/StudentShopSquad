@@ -11,9 +11,9 @@ html, body{
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center; 
+    align-items: center;
     background-color: lightgoldenrodyellow;
+    min-height: 100vh;
 }
 
 .maintitle{
@@ -25,4 +25,51 @@ html, body{
     padding: 10px;
     width: 100%;
     box-sizing: border-box;
+    margin: 2rem 0;
+}
+
+.search-container {
+    position: relative;
+    text-align: center;
+    font-size: 2vh;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.search-input {
+    width: 35%;
+    padding: 10px;
+    font-size: 2vh;
+    border: 2px solid #cccccc;
+    border-radius: 8px;
+    outline: none;
+    background-color: white;
+    color: black;
+}
+
+.search-input:focus {
+    border-color: black;
+    background-color: white;
+}
+
+.search-button {
+    position: relative;
+    text-align: center;
+    font-size: 2vh;
+    padding: 10px;
+    background-color: #e6e6e6;
+    color: black;
+    border: 2px solid #808080;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 10%;
+}
+
+.search-button:hover {
+    background-color: #d9d9d9;
 }
