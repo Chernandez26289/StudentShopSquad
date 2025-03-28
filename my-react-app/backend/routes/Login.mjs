@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { body, validationResult } from "express-validator";
-import passport from "passport";
+import {comparePassword} from "../utils/helpers.mjs";
 import { user } from "../mongoose/user.mjs";
 
 const router = Router();
@@ -18,13 +18,19 @@ router.post('/api/login',
             return response.status(400).json({ errors: result.array() });
         }
         const { username, password } = request.body;
+        
         try {
             console.log('Searching for user:', username); 
             //find user in database
-            const foundUser = await user.findOne({ username, password });
+            const foundUser = await user.findOne({ username});
             //if user not found, return error
             if (!foundUser) {
                 console.log('User not found/invalid credentials');
+                return response.status(401).json({ message: "Invalid credentials" });
+            } 
+            //check if password is correct
+            if (!comparePassword(password, foundUser.password)) {
+                console.log('Invalid password');
                 return response.status(401).json({ message: "Invalid credentials" });
             }
             // Set user in session

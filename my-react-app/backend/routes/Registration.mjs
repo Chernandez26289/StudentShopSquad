@@ -1,6 +1,8 @@
 import { Router } from "express";
 import { body, validationResult } from "express-validator";
 import { user } from "../mongoose/user.mjs";
+import { hashPassword } from "../utils/helpers.mjs"; 
+
 
 const router = Router();
 
@@ -28,7 +30,7 @@ router.post('/api/register',
             return response.status(400);
         }
 
-        const { username, password, email } = request.body;
+        let { username, password, email } = request.body;
 
         try {
             // Check if username already exists
@@ -49,10 +51,13 @@ router.post('/api/register',
                 });
             }
 
+            //Hash the password
+            password = hashPassword(password); 
+            console.log(password);
             // Create new user to add to database
             const newUser = new user({
                 username,
-                password, //FIXME: hash this password
+                password, 
                 email
             });
 
