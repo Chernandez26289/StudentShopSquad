@@ -5,6 +5,7 @@ import Listings from '../Listings/Listings';
 import About from '../About/About';
 import Registration from '../Registration/Registration';
 import Profile from '../Profile/Profile';
+import CreateListing from '../CreateListing/CreateListing';
 
 function App(){
   return(
@@ -16,6 +17,7 @@ function App(){
     <Route path="/About" exact element={<About />}/>
     <Route path="/Registration" exact element={<Registration />}/>
     <Route path="/Profile" exact element={<Profile />}/>
+    <Route path="/CreateListing" exact element={<CreateListing />}/>
     </Routes>
     </BrowserRouter>
   );

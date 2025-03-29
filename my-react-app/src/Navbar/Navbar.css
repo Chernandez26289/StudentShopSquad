@@ -52,7 +52,8 @@
   }
 
   .money{
-    position: absolute;
+    position: relative;
     align-items: center;
+    justify-content: center;
     size-adjust: 80%;
     }
