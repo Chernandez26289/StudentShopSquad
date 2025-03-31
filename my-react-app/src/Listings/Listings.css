@@ -15,7 +15,21 @@ html, body{
     background-color: lightgoldenrodyellow;
     min-height: 100vh;
 }
+.listing-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
 
+.listing-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 8px;
+    background-color: white;
+}
 .maintitle{
     color: black;
     font-family: 'Times New Roman', Times, serif;

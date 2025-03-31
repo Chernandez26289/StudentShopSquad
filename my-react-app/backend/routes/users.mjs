@@ -3,7 +3,7 @@ import {query, validationResult, checkSchema, matchedData} from "express-validat
 import {user} from "../mongoose/user.mjs"
 import {createUserValidationSchema} from "../utils/validationSchema"
 
-import mockUsers from "../constants.mjs";
+
 
 
 const router = Router(); 
