@@ -14,7 +14,8 @@ import usersRouter from "./routes/users.mjs";
 import authRouter from "./routes/auth.mjs";
 import loginRouter from "./routes/Login.mjs";
 import registrationRouter from "./routes/Registration.mjs";
-import mockUsers from "./constants.mjs"; 
+import createListingRouter from "./routes/CreateListing.mjs";
+import listingsRouter from './routes/Listings.mjs';
 
 mongoose.connect('mongodb://localhost/StudentShopSquad') 
 	.then(() => console.log("Connected to Database")) 
@@ -25,14 +26,20 @@ const PORT = 5173;
 
 // Basic middleware  
 
+
+
+
+
 // CORS to allow cross-origin requests
 app.use(cors({
     origin: 'http://localhost:5173',
     credentials: true
-}));
-app.use(express.json()); 
+})); 
+
+ //setting up the limit for the payload as using base64 for images, since base64 can be large
+app.use(express.json({limit: '50mb'})); 
 // Parse URL-encoded bodies
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
 // Session middleware
 app.use(session({
@@ -46,15 +53,21 @@ app.use(session({
     },  
 })); 
 
+
+
+
 // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 // Routes
 app.use(usersRouter); 
 app.use(authRouter);
 app.use(loginRouter);
-app.use(registrationRouter);
+app.use(registrationRouter); 
+app.use(createListingRouter);
+app.use(listingsRouter);
 // Serve static files from React build
 app.use(express.static(path.join(__dirname, '../dist')));
 
