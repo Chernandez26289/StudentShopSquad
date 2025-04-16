@@ -9,39 +9,46 @@ function Listings(){
     const [currpage, setcurrpage] = useState(0);
     const listingsperpage = 12;
 
-    useEffect(() => {
-        const fetchListings = async () => {
-            console.log("Fetching listings...");
-            try {
-                const response = await fetch('http://localhost:5173/api/listings', {
-                    method: "GET",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Accept": "application/json"
-                    },
-                    credentials: "include"
-                });
+    const fetchListings = async (search = "") => {
+        console.log("Fetching listings...");
+        try {
+            const response = await fetch(`http://localhost:5173/api/listings${search ? `?search=${encodeURIComponent(search)}` : ''}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                credentials: "include"
+            });
 
-                if (!response.ok) {
-                    throw new Error('Error Getting Listings');
-                }
-
-                const data = await response.json();
-                setListings(data.reverse());
-            } catch (error) {
-                setError(error);
+            if (!response.ok) {
+                throw new Error('Error Getting Listings');
             }
-        };
+
+            const data = await response.json();
+            setListings(data.reverse());
+        } catch (error) {
+            setError(error);
+        }
+    };
+
+    useEffect(() => {
         fetchListings();
     }, []);
 
-    const filterListings = (e) =>{
+    const filterListings = (e) => {
         setSearchFilter(e.target.value);
     };
 
-    const handleSearch = (e) =>{
+    const handleSearch = (e) => {
         e.preventDefault();
         console.log('Searching for:', searchFilter);
+        fetchListings(searchFilter);
+    };
+
+    const handleShowAll = () => {
+        setSearchFilter("");
+        fetchListings();
     };
 
     const start = currpage * listingsperpage;
@@ -62,6 +69,9 @@ function Listings(){
                 />
                 <button type="submit" className="search-button">
                     Search
+                </button>
+                <button type="button" onClick={handleShowAll} className="search-button">
+                    Show All
                 </button>
             </form>
             <div className="listings-grid">
