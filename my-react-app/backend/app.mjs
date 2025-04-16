@@ -17,7 +17,7 @@ import registrationRouter from "./routes/Registration.mjs";
 import createListingRouter from "./routes/CreateListing.mjs";
 import listingsRouter from './routes/Listings.mjs';
 
-mongoose.connect('mongodb+srv://carsonhernandez:carson@studentshopsquad.4xir2.mongodb.net/') 
+mongoose.connect(change to fit your thing) 
 	.then(() => console.log("Connected to Database")) 
 	.catch((err) => console.log(`Error: ${err}`));
 
