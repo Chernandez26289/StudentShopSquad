@@ -1,5 +1,6 @@
 *{
     font-family: 'Times New Roman', Times, serif;
+    
 }
 
 html, body{
@@ -14,6 +15,12 @@ html, body{
     justify-content: center;
     align-items: center; 
     background-color: lightgoldenrodyellow;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.login-page-container .maintitle{
+    margin-top: 0;
 }
 
 .maintitle{
@@ -24,21 +31,49 @@ html, body{
     border-style: groove;
     padding: 10px;
     width: 100%;
+    background-color: burlywood;
     box-sizing: border-box;
 }
 
-#usernamecss{
-    position: relative;
+#about{
+    background-color: burlywood;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 10px;
+}
+
+.form-container{
+    background-color: burlywood;
+    padding: 30px;
+    border-radius: 20px;
     text-align: center;
-    font-size: 2vh;
+    justify-content: center;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#usernamecss{
+    background-color: transparent;
+    margin-bottom: 15px;
 }
 #passwordcss{
     position: relative;
     text-align: center;
     font-size: 2vh;
+    background-color: rgb(139, 93, 60);
 }
-#submitbutton{
-    position: relative;
-    text-align: center;
+#submitbutton input[type="submit"]{
+    background-color: black;
+    color: black;
+    padding: 12px 24px;
     font-size: 2vh;
+    border: 2px solid;
+    border-radius: 12px;
+    cursor: pointer;
+    width: 80%;
+    transition: background-color 0.3s ease;
+    border-color: black;
+}
+#submitbutton input[type="submit"]:hover{
+    background-color: lightgoldenrodyellow;
 }

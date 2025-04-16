@@ -53,12 +53,13 @@ function Login(){
     return(
         <div className="login-page-container">
             <Navbar />
-            <div className="maintitle">Welcome to the login page!</div>
-            <br></br>
+            <div className="maintitle">Welcome to the Login Page!</div>
             <div id="about">Please enter login below!</div> 
+            <br></br>
             <br></br>
             {error && <div className="error-message">{error}</div>}
             <form onSubmit={handleSubmit}>
+                <div className="form-container">
                 <div id="usernamecss">
                     <label htmlFor="username">Username: </label>
                     <input 
@@ -71,7 +72,6 @@ function Login(){
                         onChange={handleChange}
                     />
                 </div>    
-                <br/>
                 <div id="passwordcss">
                     <label htmlFor="password">Password: </label>
                     <input 
@@ -87,6 +87,7 @@ function Login(){
                 <br/>
                 <div id="submitbutton">
                     <input type="submit" value="Login"/>
+                </div>
                 </div>
             </form>
             <div className="header-option-container" onClick={() => { navigate(`/Registration`); }}>

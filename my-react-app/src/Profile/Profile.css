@@ -16,6 +16,11 @@ html, body{
     background-color: lightgoldenrodyellow;
 }
 
+
+.profile-page-container .maintitle{
+    margin-top: 0;
+}
+
 .maintitle{
     color: black;
     font-family: 'Times New Roman', Times, serif;

@@ -41,7 +41,7 @@ const Navbar = () =>{
           <div className="header-option-text">Listings</div>
         </div>
         <div className="money">
-                <img src="public/money.png" alt="Image of money" height="50" />
+                <img src="money.png" alt="Image of money" height="50" />
             </div>
         {user && (
           <div className="header-option-container" onClick={() =>{ navigate(`/CreateListing`); }}>

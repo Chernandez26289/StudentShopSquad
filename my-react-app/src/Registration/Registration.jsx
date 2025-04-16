@@ -57,16 +57,16 @@ function Registration(){
     };
     
     return(
-        <div className="registration-page-container">
+        <div className="rhdhd">
             <Navbar />
-            <div className="maintitle">Welcome to the registration page!</div>
-            <br></br>
+        <div className="registration-page-container">
+            <div className="maintitle">Welcome to the Registration Page!</div>
             <div id= "about">Please enter information below!</div> 
             <br></br> 
-            <br></br>
             {error && <div className="error-message">Error! {error}</div> } 
             <br></br>
             <form onSubmit={handleSubmit}>
+                <div className="form-container">
                 <div id="usernamecss">
                     <label htmlFor="username">Username: </label>
                     <input 
@@ -79,7 +79,6 @@ function Registration(){
                         onChange={handleChange}
                     />
                 </div>    
-                <br/>
                 <div id="passwordcss">
                     <label htmlFor="password">Password: </label>
                     <input 
@@ -109,10 +108,12 @@ function Registration(){
                 <div id="submitbutton">
                     <input type="submit" value="Register" />
                 </div>
+                </div>
             </form>
             <div className="header-option-container" onClick={() =>{ navigate(`/Login`); }}>
             <div className="header-option-text">Have an Account? Click to Login.</div>
             </div>
+        </div>
         </div>
     );
 }

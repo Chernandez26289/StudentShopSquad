@@ -16,6 +16,16 @@ html, body{
     background-color: lightgoldenrodyellow;
 }
 
+.home-page-container .maintitle{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    margin-top: 0;
+    background-color: lightgoldenrodyellow;
+}
+
 .maintitle{
     color: black;
     font-family: 'Times New Roman', Times, serif;
@@ -24,6 +34,7 @@ html, body{
     border-style: groove;
     padding: 10px;
     width: 100%;
+    margin-top: 0;
     box-sizing: border-box;
 }
 

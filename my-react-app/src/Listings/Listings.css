@@ -15,7 +15,10 @@ html, body{
     background-color: lightgoldenrodyellow;
     min-height: 100vh;
 }
-.listing-image {
+.listings-page-container .maintitle{
+    margin-top: 0;
+}
+.listing-image{
     width: 200px;
     height: 200px;
     object-fit: cover;
@@ -23,7 +26,7 @@ html, body{
     margin-bottom: 10px;
 }
 
-.listing-item {
+.listing-item{
     border: 1px solid #ddd;
     padding: 15px;
     margin: 10px;
@@ -42,7 +45,7 @@ html, body{
     margin: 2rem 0;
 }
 
-.search-container {
+.search-container{
     position: relative;
     text-align: center;
     font-size: 2vh;
@@ -55,7 +58,7 @@ html, body{
     gap: 10px;
 }
 
-.search-input {
+.search-input{
     width: 35%;
     padding: 10px;
     font-size: 2vh;
@@ -66,12 +69,12 @@ html, body{
     color: black;
 }
 
-.search-input:focus {
+.search-input:focus{
     border-color: black;
     background-color: white;
 }
 
-.search-button {
+.search-button{
     position: relative;
     text-align: center;
     font-size: 2vh;
@@ -84,9 +87,10 @@ html, body{
     width: 10%;
 }
 
-.search-button:hover {
+.search-button:hover{
     background-color: #d9d9d9;
 }
+
 
 .loading, .no-more {
     text-align: center;
