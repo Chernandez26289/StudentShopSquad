@@ -18,7 +18,7 @@ router.post('/api/createlisting',
             return response.status(400).json({ errors: result.array() });
         }
 
-        const { product, description, image, username, price } = request.body; 
+        const { product, description, image, username, price, email } = request.body; 
         console.log(request.body);
         try {
             // TODO: Add database integration here
@@ -28,7 +28,8 @@ router.post('/api/createlisting',
                 description, 
                 image, 
                 price,
-                username
+                username,
+                email
             });
 
             const savedListing = await newListing.save();
@@ -45,7 +46,8 @@ router.post('/api/createlisting',
                     description,
                     image,
                     price,
-                    username
+                    username,
+                    email
                 }
             });
         } catch (error) {

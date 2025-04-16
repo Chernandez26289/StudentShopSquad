@@ -15,4 +15,15 @@ router.get('/api/listings', async (request, response) => {
     }
 });
 
+router.get('/api/listings/:id', async (request, response) => {
+    try {
+        const { id } = request.params;
+        const listingFound = await listing.findById(id);
+        return response.status(200).json(listingFound);
+    } catch (error) {
+        console.error("Error fetching listing:", error);
+        return response.status(500).json({ message: "Error fetching listing" });
+    }
+});
+
 export default router; 

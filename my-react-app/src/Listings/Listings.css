@@ -87,3 +87,20 @@ html, body{
 .search-button:hover {
     background-color: #d9d9d9;
 }
+
+.loading, .no-more {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2em;
+    color: #666;
+}
+
+.loading {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
