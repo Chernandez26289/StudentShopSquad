@@ -51,7 +51,7 @@ function Listings(){
     return(
         <div className="listings-page-container">
             <Navbar />
-            <div className="maintitle">Welcome to the listings page!</div>
+            <div className="maintitle">Welcome to the Listings Page!</div>
             <form onSubmit={handleSearch} className="search-container">
                 <input
                     type="text"

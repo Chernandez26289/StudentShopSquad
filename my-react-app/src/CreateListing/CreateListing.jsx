@@ -97,7 +97,7 @@ function CreateListing(){
     return(
         <div className="createlisting-page-container">
             <Navbar />
-            <div className="maintitle">Welcome to the Listing Creation page!</div>
+            <div className="maintitle">Welcome to the Listing Creation Page!</div>
             <div id="about">Please enter listing information below!</div>
             <br></br>
             <form onSubmit={handleSubmit}>

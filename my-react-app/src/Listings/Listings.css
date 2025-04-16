@@ -15,6 +15,9 @@ html, body{
     background-color: lightgoldenrodyellow;
     min-height: 100vh;
 }
+.listings-page-container .maintitle{
+    margin-top: 0;
+}
 .listing-image{
     width: 200px;
     height: 200px;
