@@ -14,8 +14,7 @@ function CreateListing(){
         description: "",
         image: null, 
         price: "",
-        username: "",
-        email: ""
+        username: ""
     });
     const handleFileChange = (event) =>{
         setSelectedFile(event.target.files[0]); 
@@ -53,7 +52,7 @@ function CreateListing(){
         event.preventDefault();
         
         try{
-            const response = await fetch("/api/createlisting", {
+            const response = await fetch("http://localhost:5173/api/createlisting", {
                 method: "POST", 
                 headers: {
                     "Content-Type": "application/json",
@@ -78,15 +77,15 @@ function CreateListing(){
     useEffect(() => {
         const checkUser = async () => {
             try {
-                const response = await fetch('/api/login/status', {
+                const response = await fetch('http://localhost:5173/api/login/status', {
                     credentials: 'include'
                 });
                 if (response.ok) {
                     const userData = await response.json(); 
+                    //Sets the username to the form data automatically
                     setFormData(prev => ({
                         ...prev,
-                        username: userData.username,
-                        email: userData.email
+                        username: userData.username
                     }));
                 }
             } catch (error) {
