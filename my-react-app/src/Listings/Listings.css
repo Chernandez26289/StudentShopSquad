@@ -6,6 +6,24 @@ html, body{
     background-color: lightgoldenrodyellow;
 }
 
+@keyframes pulse {
+    0% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.6;
+    }
+}
+
+.loading {
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 20px 0;
+    animation: pulse 1.5s infinite;
+}
 
 .listings-page-container{
     position: relative;
@@ -27,6 +45,13 @@ html, body{
 }
 
 .listing-item{
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 8px;
+    background-color: white;
+} 
+.listing-email{
     border: 1px solid #ddd;
     padding: 15px;
     margin: 10px;
@@ -93,46 +118,52 @@ html, body{
 
 .listings-grid{
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /*4 items per row*/
+    grid-template-columns: repeat(4, 1fr);
     gap: 15px;
     width: 80%;
     justify-content: center;
-    margin-top: 20px;
+    margin: 20px auto;
+    padding: 0 20px;
 }
 
-.listing-item{
+.listing-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.listing-item {
     border: 1px solid #ddd;
     padding: 15px;
-    border-radius: 6px;
+    border-radius: 8px;
     background-color: #f8df6f;
-    transition: transform 0.2s, background-color 0.2s;
+    transition: transform 0.2s;
 }
 
-.listing-item:hover{
+.listing-item:hover {
     transform: scale(1.05);
     background-color: #e0e0e0;
 }
 
 .listing-image {
-    width: 100%;
+    width: 200px;
     height: 200px;
     object-fit: cover;
     border-radius: 8px;
-    margin-bottom: 10px;
+    margin: 0 auto 10px;
+    display: block;
 }
 
-.listing-title{
+.listing-title {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 5px;
-    justify-content: center;
     text-align: center;
 }
 
-.listing-price, .listing-seller, .listing-description{
+.listing-price, .listing-seller, .listing-description {
     font-size: 16px;
     margin-bottom: 5px;
-    justify-content: center;
     text-align: center;
 }
 

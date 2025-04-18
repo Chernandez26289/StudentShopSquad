@@ -1,12 +1,13 @@
 import "./CreateListing.css";
 import Navbar from "../Navbar/Navbar";
 import {useState, useEffect} from "react";
+import { useNavigate } from "react-router-dom";
 
 
 //FIXME: 
 //Payload Error
 function CreateListing(){
-    
+    const navigate = useNavigate();
     const [selectedFile, setSelectedFile] = useState(null);
     const [preview, setPreview] = useState(null);
     const [formData, setFormData] = useState({
@@ -14,7 +15,8 @@ function CreateListing(){
         description: "",
         image: null, 
         price: "",
-        username: ""
+        username: "",
+        email: ""
     });
     const handleFileChange = (event) =>{
         setSelectedFile(event.target.files[0]); 
@@ -61,19 +63,24 @@ function CreateListing(){
                 body: JSON.stringify(formData),
                 credentials: "include"
             });
+
+            const data = await response.json();
+            console.log(data);
+
             if (response.ok){
-                console.log("Listing created successfully");
+                console.log("Listing created successfully: " + data);
             } else {
                 console.error("Failed to create listing");
             } 
-
-            const data = await response.json();
-            console.log(data);  
-            console.log("Listing created successfully: " + data);
         } catch (error) {
             console.error("Create listing error:", error);
         }
     }; 
+    const handleSubmitAndNavigate = async (event) => {
+        event.preventDefault();
+        await handleSubmit(event);
+        navigate('/Listings');
+    };
     useEffect(() => {
         const checkUser = async () => {
             try {
@@ -82,10 +89,11 @@ function CreateListing(){
                 });
                 if (response.ok) {
                     const userData = await response.json(); 
-                    //Sets the username to the form data automatically
+                    //Sets the username and email to the form data automatically
                     setFormData(prev => ({
                         ...prev,
-                        username: userData.username
+                        username: userData.username,
+                        email: userData.email
                     }));
                 }
             } catch (error) {
@@ -100,7 +108,7 @@ function CreateListing(){
             <div className="maintitle">Welcome to the Listing Creation Page!</div>
             <div id="about">Please enter listing information below!</div>
             <br></br>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmitAndNavigate}>
                 <div id="productnamecss">
                     <label htmlFor="product">Product name: </label>
                     <input type="text" 

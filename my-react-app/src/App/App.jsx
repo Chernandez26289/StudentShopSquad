@@ -6,6 +6,7 @@ import About from '../About/About';
 import Registration from '../Registration/Registration';
 import Profile from '../Profile/Profile';
 import CreateListing from '../CreateListing/CreateListing';
+import ListingDetails from '../Listings/ListingDetails';
 
 function App(){
   return(
@@ -13,7 +14,8 @@ function App(){
     <Routes>
     <Route path="/" exact element={<Home />}/>
     <Route path="/Login" exact element={<Login />}/>
-    <Route path="/Listings" exact element={<Listings />}/>
+    <Route path="/Listings" exact element={<Listings />}/> 
+    <Route path="/Listings/:id" exact element={<ListingDetails />}/>
     <Route path="/About" exact element={<About />}/>
     <Route path="/Registration" exact element={<Registration />}/>
     <Route path="/Profile" exact element={<Profile />}/>
