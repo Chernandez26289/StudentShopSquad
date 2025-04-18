@@ -32,23 +32,114 @@ html, body{
     box-sizing: border-box;
 }
 
-#EmailInfo{
+#profile-EmailInfo{
     position: relative;
     text-align: center;
     font-size: 2vh;
 }
-#passwordcss{
+#profile-passwordcss{
     position: relative;
     text-align: center;
     font-size: 2vh;
     background-color: var(--backgroundColor);
     padding: 5px;
 }
-#submitbutton{
+#profile-submitbutton{
     position: relative;
     text-align: center;
     font-size: 2vh;
 }
 #Hello-User{
     font-size: 2vh;
+}
+
+h2 {
+    text-align: center;
+    width: 100%;
+    font-size: 2.5vh;
+    margin: 20px 0;
+    color: black;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.listings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+.manage-listings-button {
+    padding: 8px 16px;
+    background-color: #fda22a;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.manage-listings-button:hover {
+    background-color: #e6911a;
+}
+
+.listing-item.managing {
+    cursor: pointer;
+    position: relative;
+}
+
+.listing-item.managing:hover {
+    opacity: 0.9;
+}
+
+.delete-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    padding: 10px;
+}
+
+.delete-overlay p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.delete-overlay .click-instruction {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.listing-item.deleting {
+    background-color: #90EE90 !important; /* Light green background */
+    opacity: 0.8;
+    pointer-events: none; /* Prevent any interactions while deleting */
+}
+
+.deleting-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(144, 238, 144, 0.9); /* Semi-transparent light green */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #006400; /* Dark green text */
+    font-size: 1.2em;
+    font-weight: bold;
+    z-index: 2;
 }

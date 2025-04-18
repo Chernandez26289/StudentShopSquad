@@ -10,7 +10,9 @@ const listingSchema = new mongoose.Schema({
 
     price: mongoose.Schema.Types.String,
 
-    username: mongoose.Schema.Types.String
+    username: mongoose.Schema.Types.String,
+
+    email: mongoose.Schema.Types.String
 }) 
 
 export const listing = mongoose.model('Listing', listingSchema);

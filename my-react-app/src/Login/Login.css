@@ -57,10 +57,8 @@ html, body{
     margin-bottom: 15px;
 }
 #passwordcss{
-    position: relative;
-    text-align: center;
-    font-size: 2vh;
-    background-color: rgb(139, 93, 60);
+    background-color: transparent;
+    margin-bottom: 15px;
 }
 #submitbutton input[type="submit"]{
     background-color: black;

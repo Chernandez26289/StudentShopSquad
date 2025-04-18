@@ -17,7 +17,7 @@ import registrationRouter from "./routes/Registration.mjs";
 import createListingRouter from "./routes/CreateListing.mjs";
 import listingsRouter from './routes/Listings.mjs';
 
-mongoose.connect(add you own) 
+mongoose.connect(use your own mongoDB connection string) 
 	.then(() => console.log("Connected to Database")) 
 	.catch((err) => console.log(`Error: ${err}`));
 
