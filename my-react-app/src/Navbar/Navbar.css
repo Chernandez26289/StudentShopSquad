@@ -51,10 +51,3 @@
     color: #9b4d96;
     transform: scale(1.05);
   }
-
-  .money{
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    size-adjust: 80%;
-    }

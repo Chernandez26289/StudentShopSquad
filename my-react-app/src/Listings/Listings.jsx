@@ -101,7 +101,7 @@ function Listings(){
                     Show All
                 </button>
             </form>
-            
+            <br />
             {loading && <div className="loading">Loading...</div>}
             <div className="listings-container">
                 <div className="listings-grid">

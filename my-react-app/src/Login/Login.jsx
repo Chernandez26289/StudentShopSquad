@@ -57,6 +57,8 @@ function Login(){
             <div id="about">Please enter login below!</div> 
             <br></br>
             <br></br>
+            <br></br>
+            <br></br>
             {error && <div className="error-message">{error}</div>}
             <form onSubmit={handleSubmit}>
                 <div className="form-container">
@@ -84,7 +86,6 @@ function Login(){
                         onChange={handleChange}
                     />
                 </div>
-                <br/>
                 <div id="submitbutton">
                     <input type="submit" value="Login"/>
                 </div>

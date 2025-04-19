@@ -23,7 +23,7 @@ html, body{
     justify-content: center;
     align-items: center; 
     margin-top: 0;
-    background-color: lightgoldenrodyellow;
+    background-color: burlywood;
 }
 
 .maintitle{
@@ -36,5 +36,19 @@ html, body{
     width: 100%;
     margin-top: 0;
     box-sizing: border-box;
+}
+
+.home-page-container .maintitle{
+    margin-top: 0;
+}
+
+#AboutInfo{
+    font-size: 2vh;
+    text-align: center;
+    width: 70%;
+    background-color: blanchedalmond;
+    padding: 20px; 
+    border-radius: 10px; 
+    border: 1px solid #000000;
 }
 

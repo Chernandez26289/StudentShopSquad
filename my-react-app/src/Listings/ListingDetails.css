@@ -1,0 +1,90 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+html, body{
+    background-color: lightgoldenrodyellow;
+}
+
+.back-button{
+    margin: 2px auto;
+    margin-top: 2px;
+    display: block;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #fda22a;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border: 1px solid #000000;
+}
+
+.back-button:hover{
+    background-color: #e8951f;
+}
+
+.listingsdetails-page-container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: tan;
+    min-height: 100vh;
+}
+.listings-page-container .maintitle{
+    margin-top: 0;
+}
+.listingdetails-image{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #000000;
+}
+
+.listingdetails-item{
+    width: 900px;
+    height: 700px;
+    margin: 20px auto;
+    padding: 25px;
+    border: none;
+    border-radius: 12px;
+    background-color: #c0ae5d;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 1px solid #000000;
+}
+.listingdetails-description{
+    border: 1px solid #000000;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 8px;
+    background-color: rgb(255, 216, 110);
+    max-height: 300px;
+}
+
+.listingdetails-image{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 0 auto 10px;
+    display: block;
+}
+
+.listingdetails-title{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.listingdetails-price, .listingdetails-seller, .listingdetails-email{
+    font-size: 16px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+

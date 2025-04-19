@@ -33,16 +33,9 @@ const Navbar = () =>{
           <div className="header-option-text">Home</div>
         </div>
 
-        <div className="header-option-container" onClick={() =>{ navigate(`/about`); }}>
-          <div className="header-option-text">About</div>
-        </div>
-
         <div className="header-option-container" onClick={() =>{ navigate(`/Listings`); }}>
           <div className="header-option-text">Listings</div>
         </div>
-        <div className="money">
-                <img src="money.png" alt="Image of money" height="50" />
-            </div>
         {user && (
           <div className="header-option-container" onClick={() =>{ navigate(`/CreateListing`); }}>
             <div className="header-option-text">Create Listing</div>

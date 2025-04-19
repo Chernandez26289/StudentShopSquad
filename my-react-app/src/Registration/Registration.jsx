@@ -91,7 +91,6 @@ function Registration(){
                         onChange={handleChange}
                     />
                 </div>
-                <br/>
                 <div id="emailcss">
                     <label htmlFor="email">Email: </label>
                     <input 

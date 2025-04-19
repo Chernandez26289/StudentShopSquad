@@ -40,6 +40,7 @@ html, body{
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     padding: 10px;
+    border: 1px solid #000000;
 }
 
 .form-container{
@@ -50,6 +51,7 @@ html, body{
     justify-content: center;
     width: 300px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 1px solid #000000;
 }
 
 #usernamecss{
@@ -70,7 +72,7 @@ html, body{
     cursor: pointer;
     width: 80%;
     transition: background-color 0.3s ease;
-    border-color: black;
+    border: 1px solid #000000;
 }
 #submitbutton input[type="submit"]:hover{
     background-color: lightgoldenrodyellow;

@@ -1,13 +1,15 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Navbar from "../Navbar/Navbar";
-import "../Listings/Listings.css";  
+import "./ListingDetails.css";  
+import { useNavigate } from "react-router-dom";
 
 function ListingDetails(){
     const { id } = useParams(); //gets param from url EX: Route path="/Listings/:id" 
     const [listing, setListing] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
     
     useEffect(() => {
         const fetchListing = async () => { 
@@ -38,19 +40,22 @@ function ListingDetails(){
         fetchListing();
     }, [id]);
 
-    return (
-        <div className="listings-grid"> 
+    return(
+        <div className="listingsdetails-page-container"> 
+        <Navbar />
+        <br />
+        <button className="back-button" onClick={() => navigate(-1)}>← Back</button>
             {loading && <div className="loading">Loading...</div>}
             {error && <div className="error">Error: {error.message}</div>} 
             {!listing && <div className="no-listing">No listing found!</div>}
             {listing && (
-                <div className="listing-item"> 
-                    <img src={listing.image} alt={listing.product} className="listing-image" />
-                    <h1 className="listing-title">{listing.product}</h1>
-                    <p className="listing-price">Price: ${listing.price}</p>
-                    <p className="listing-seller">Seller: {listing.username}</p>
-                    <p className="listing-description">{listing.description}</p>
-                    <p className="listing-email">Contact: {listing.email}</p>
+                <div className="listingdetails-item"> 
+                    <img src={listing.image} alt={listing.product} className="listingdetails-image" />
+                    <h1 className="listingdetails-title">{listing.product}</h1>
+                    <p className="listingdetails-price">Price: ${listing.price}</p>
+                    <p className="listingdetails-seller">Seller: {listing.username}</p>
+                    <p className="listingdetails-email">Contact: {listing.email}</p>
+                    <p className="listingdetails-description">{listing.description}</p>
                 </div>
             )}
         </div> 
