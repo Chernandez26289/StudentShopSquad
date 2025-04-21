@@ -1,12 +1,33 @@
+/**
+ * Registration Route Handler
+ * 
+ * This module handles user registration and availability checks including:
+ * - New user registration with validation
+ * - Username availability check
+ * - Email availability check
+ */
+
 import { Router } from "express";
 import { body, validationResult } from "express-validator";
 import { user } from "../mongoose/user.mjs";
 import { hashPassword } from "../utils/helpers.mjs"; 
 
-
 const router = Router();
 
-// Registration route
+/**
+ * POST /api/register
+ * Registers a new user in the system
+ * 
+ * Request Body:
+ * - username: string - Must be at least 3 characters
+ * - password: string - Must be at least 3 characters
+ * - email: string - Must be a valid email address
+ * 
+ * Returns:
+ * - 201: Success response with user object
+ * - 400: Validation errors or username/email already exists
+ * - 500: Server error message
+ */
 router.post('/api/register', 
     body("username")
         .notEmpty().withMessage("Username is required")
@@ -23,7 +44,7 @@ router.post('/api/register',
             password: request.body.password
         });
 
-        // Validate input with schema
+        // Validate input data
         const result = validationResult(request);
         if (!result.isEmpty()) {
             console.log('Validation errors:', result.array());
@@ -33,7 +54,7 @@ router.post('/api/register',
         let { username, password, email } = request.body;
 
         try {
-            // Check if username already exists
+            // Check username availability
             const userExists = await user.findOne({ username });
             if (userExists) {
                 console.log('Username already exists please try again');
@@ -42,7 +63,7 @@ router.post('/api/register',
                 });
             }
 
-            // Check if email already exists, same as 
+            // Check email availability
             const emailExists = await user.findOne({ email });
             if (emailExists) {
                 console.log('Email already exists please try again');
@@ -51,10 +72,11 @@ router.post('/api/register',
                 });
             }
 
-            //Hash the password
+            // Hash password for security
             password = hashPassword(password); 
             console.log(password);
-            // Create new user to add to database
+            
+            // Create new user document
             const newUser = new user({
                 username,
                 password, 
@@ -65,7 +87,7 @@ router.post('/api/register',
             const savedUser = await newUser.save();
             console.log('New user registered:', savedUser.username);
 
-            // Set user session
+            // Create session for new user
             request.session.user = newUser;
 
             return response.status(201).json({
@@ -81,8 +103,18 @@ router.post('/api/register',
         }
     }
 );
-//Real Time checks for use in the frontend
 
+/**
+ * GET /api/register/usercheck/:username
+ * Checks if a username is available
+ * 
+ * Parameters:
+ * - username: string - Username to check
+ * 
+ * Returns:
+ * - 200: { available: boolean }
+ * - 500: Error message if check fails
+ */
 router.get('/api/register/usercheck/:username', 
     async (request, response) => {
         try {
@@ -102,7 +134,17 @@ router.get('/api/register/usercheck/:username',
     }
 );
 
-// Check if email is available
+/**
+ * GET /api/register/emailcheck/:email
+ * Checks if an email is available
+ * 
+ * Parameters:
+ * - email: string - Email to check
+ * 
+ * Returns:
+ * - 200: { available: boolean }
+ * - 500: Error message if check fails
+ */
 router.get('/api/register/emailcheck/:email', 
     async (request, response) => {
         try {
