@@ -117,14 +117,6 @@ function Profile(){
     const usernameDisplay = user ? "Username: " + user.username : "Username: " + username;
     const emailDisplay = user ? "Email: " + user.email : "Email: " + email;
 
-    if(showPassword){
-        passwordDisplay = user ? "Password: " + user.password : "Password: " + password;
-        buttonText = "Hide Password";
-    }else{
-        passwordDisplay = "Password: Hidden";
-        buttonText = "Show Password";
-    }
-
     return(
         <div className="profile-page-container">
             <Navbar />
@@ -134,21 +126,13 @@ function Profile(){
             <br/>
             <div id="profile-EmailInfo">{emailDisplay}</div>
             <br/>
-            <div id="profile-passwordcss" className={showPassword ? "visible-password" : "hidden-password"}>
-                {passwordDisplay}
-            </div>
-            <br/>
-            <div id="toggleButton">
-                <button onClick={() => setShowPassword(!showPassword)}>
-                    {buttonText}
-                </button>
-            </div>  
-            <br/>
+           
             <div id="toggleButton">
                 <button onClick={handleLogout}>
                     Logout
                 </button>
-            </div> 
+            </div>  
+            <br />
             <div className="listings-container"> 
                 {loading && <div className="loading">Loading...</div>}
                 {!loading && (

@@ -1,3 +1,11 @@
+/**
+ * Users Route Handler
+ * 
+ * This module handles user-related operations including:
+ * - User creation with validation
+ * - User session management
+ */
+
 import {Router} from "express" 
 import {query, validationResult, checkSchema, matchedData} from "express-validator"; //validationResult gives the errors 
 import {user} from "../mongoose/user.mjs"
@@ -8,9 +16,21 @@ import {createUserValidationSchema} from "../utils/validationSchema"
 
 const router = Router(); 
 
+/**
+ * POST /api/users
+ * Creates a new user with schema validation
+ * 
+ * Request Body:
+ * - Must match the createUserValidationSchema
+ * 
+ * Returns:
+ * - 201: Created user object
+ * - 400: Validation errors
+ * - 401: Error creating user
+ */
 router.post("/api/users", checkSchema(createUserValidationSchema), async (request, response) =>{ 
   const result = validationResult(request); 
-  if(!result.isEmpty()) {console.log("Uh Oh!"); return response.send(result.array());} // this sends the errors of the validation result
+  if(!result.isEmpty()) {console.log("Validation errors:", result.array()); return response.send(result.array());} // this sends the errors of the validation result
   
   const data = matchedData(request); 
   console.log(data);
@@ -28,6 +48,16 @@ router.post("/api/users", checkSchema(createUserValidationSchema), async (reques
 });
 
 
+/**
+ * GET /api/users
+ * Retrieves user session information
+ * 
+ * Query Parameters:
+ * - filter: string - Must be 3-10 characters
+ * 
+ * Returns:
+ * - Session data if available
+ */
 router.get(
   "/api/users",
   query("filter")

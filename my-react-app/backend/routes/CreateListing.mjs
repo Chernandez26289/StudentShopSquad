@@ -1,17 +1,38 @@
+/**
+ * CreateListing Route Handler
+ * 
+ * This module handles the creation of new product listings in the system.
+ * It validates the input data and creates a new listing in the database.
+ */
+
 import { Router } from "express";
 import { body, validationResult } from "express-validator";
-import {listing } from "../mongoose/listing.mjs";
+import { listing } from "../mongoose/listing.mjs";
 
 const router = Router();
 
-
-
-// Create Listing route
+/**
+ * POST /api/createlisting
+ * Creates a new product listing
+ * 
+ * Request Body:
+ * - product: string - Name of the product
+ * - description: string - Product description
+ * - image: string - Base64 encoded image
+ * - username: string - Seller's username
+ * - price: number - Product price
+ * - email: string - Seller's email
+ * 
+ * Returns:
+ * - 201: Success response with created listing details
+ * - 400: Validation errors if input data is invalid
+ * - 500: Error message if database operation fails
+ */
 router.post('/api/createlisting', 
     async (request, response) => {
         console.log('Create listing attempt received:', request.body);
         
-        // Check if data follows schema
+        // Validate input data
         const result = validationResult(request);
         if (!result.isEmpty()) {
             console.log('Validation errors:', result.array());
@@ -21,8 +42,7 @@ router.post('/api/createlisting',
         const { product, description, image, username, price, email } = request.body; 
         console.log(request.body);
         try {
-            // TODO: Add database integration here
-            
+            // Create new listing document
             const newListing = new listing({
                 product,
                 description, 
@@ -32,13 +52,11 @@ router.post('/api/createlisting',
                 email
             });
 
+            // Save to database
             const savedListing = await newListing.save();
             console.log('New listing created:', savedListing.product);
-
-            // Set user session
-            console.log('Creating listing for product:', product);
             
-            // For now, just return success
+            // Return success response with listing details
             return response.status(201).json({ 
                 message: "Listing created",
                 listing: {
